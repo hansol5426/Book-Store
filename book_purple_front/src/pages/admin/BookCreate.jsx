@@ -60,6 +60,7 @@ function BookCreate(props) {
             if(result.resultCode === 200){
                 alert('도서 등록이 완료되었습니다.');
                 queryClient.invalidateQueries({queryKey: ['adminBook']})
+                queryClient.invalidateQueries({queryKey: ['stock']})
                 navigate('/admin/book');
             }else{
                 alert('도서 등록이 실패하였습니다.');
