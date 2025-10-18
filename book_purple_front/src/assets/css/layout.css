@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+.side-layout {
+  display: flex;
+  height: 100vh;
+}
+
+.page-content {
+  flex: 1;
+  padding: 20px;
+}

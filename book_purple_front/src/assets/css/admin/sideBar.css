@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+.sidebar{
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar li {
+  margin-bottom: 10px;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: black;
+  padding: 40px 0 0 20px; 
+  display: block;
+  font-size: large;
+}
+
+.sidebar a.active {
+  color: #538cc2;
+  font-weight: 900;
+}
+
+.side-divider{
+    border: 1px solid #9eb9d360;
+    margin: 30px 0 0 50px;
+    height: 500px;
+}

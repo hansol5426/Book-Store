@@ -1,0 +1,82 @@
+@charset "UTF-8";
+
+.admin-detail{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 30px;
+}
+
+.admin-detail h4{
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 600;
+    color: #538cc2;
+}
+
+.detail-content{
+    align-self: center;
+    justify-content: center;
+    max-width: 800px;
+    width: 80%;
+    height: auto;
+    padding: 2rem 4rem;
+    border: 1px solid #9EB9D3;
+    background-color: #F5F5F5;
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-content .table{
+    width: 100%;
+    margin: 0;
+}
+
+.detail-content .table th{
+    background-color: #F5F5F5;
+    width: 20px;
+    text-align: start;
+    font-weight: 600;
+    
+}
+
+.detail-content .table td{
+    background-color: #F5F5F5;
+    text-align: start;
+    padding: 5px;
+    width: 70px;
+}
+
+.detail-content .table td input{
+    margin: 0;
+    height: auto;
+}
+
+.detail-book-box{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    gap: 10px;
+}
+
+.detail-book-btn{
+    width: 110px;
+    height: 40px;
+    border: none;
+    background-color: #D29719;
+    border-radius: 7px;
+    color: white;
+    font-weight: bold;
+}
+
+.detail-book-btn:nth-child(2){
+    background-color: #b90404;
+}
+
+.detail-book-btn:last-child{
+    background-color: #8b8b8a;
+}

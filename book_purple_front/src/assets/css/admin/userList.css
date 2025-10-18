@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+.user-list{
+    height: 100%;
+    width: 100%;
+}
+
+.user-list h2{
+    text-align: center;
+    margin: 30px 0;
+}
+
+.user-list table{
+    height: 100%;
+    width: 90%;
+    text-align: center;
+    border: 1px solid #9EB9D3;
+    margin-bottom: 50px;
+}
+
+.user-list table th{
+    background-color: #9EB9D3 ;
+}

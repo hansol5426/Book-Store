@@ -1,0 +1,16 @@
+2025-10-09 21:11:50.703[ERROR] : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 2 of constructor in it.exam.book_purple.user.service.UserService required a bean of type 'org.springframework.security.crypto.password.PasswordEncoder' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'org.springframework.security.crypto.password.PasswordEncoder' in your configuration.
+
+2025-10-09 21:20:16.662[ERROR] : (conn=51) Field 'user_id' doesn't have a default value

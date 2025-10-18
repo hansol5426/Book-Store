@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+.book-list {
+  background-color: #f1f1f1;
+  padding-bottom: 20px;
+  min-height: calc(100vh - 250px);
+}
+
+.book-list h2 {
+  color: #2e2a4f;
+  font-weight: 600;
+  padding: 25px 50px;
+  text-align: left;
+}
+
+.book-list table {
+  height: 100px;
+  width: 90%;
+  text-align: center;
+  border: 1px solid #2e2a4f;
+  margin-bottom: 70px;
+}
+
+.book-list table th {
+  background-color: #b2a5eb;
+  font-size: large;
+  color: #2e2a4f;
+}
+
+.book-list table td {
+  background-color: #f1f1f1;
+}

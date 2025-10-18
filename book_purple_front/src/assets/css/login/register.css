@@ -1,0 +1,119 @@
+@charset "UTF-8";
+
+.regi-container{
+    height: 100vh;
+    background-color: #f1f1f1;
+    max-width: none !important;
+}
+
+.regi-logo{
+    padding: 20px 0 0 20px;
+}
+
+.regi-logo-img{
+    width: 50px;
+    height: 50px;
+    margin-right: 5px;
+}
+
+.regi-logo-title{
+    width: 80px;
+    height: 25px;
+}
+
+.regi-container h1{
+    text-align: center;
+    color: #8B72FF;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-bottom: 100px;
+}
+
+.regi-form{
+    display: flex;
+    flex-direction: column;
+}
+
+.regi{
+    margin:10px 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.regi-form label{
+    color: #2E2A4F;
+    font-weight: 600;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    flex: 0 0 120px;
+    padding-top: 14px;
+}
+
+.regi-form input{
+    width: 40%;
+}
+
+.addr-form {
+    display: flex;
+    width: 40%;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.addr-form input {
+    flex: 1;
+    min-width: 0;
+}
+
+.regi:has(#addressDetail) {
+    min-width: 200px; 
+    margin-top: -10px;
+}
+
+.regi:has(#addressDetail) label {
+    visibility: hidden;
+}
+
+.regi:has(#addressDetail) input {
+    margin-left: 14px;
+}
+
+.addr-btn{
+    width: 90px;
+    height: 35px;
+    flex-shrink: 0;
+    border: none;
+    background-color: #7B61FF;
+    border-radius: 7px;
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.save{
+    margin-top: 70px;
+    width: 50%;
+    height: 40px;
+    border: none;
+    background-color: #7B61FF;
+    border-radius: 7px;
+    color: white;
+    font-weight: 700;
+    font-size: larger;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.invalid-feedback{
+    color: #dc3545;
+    font-size: 13px;
+    width: 40%;
+    flex: 0 0 100%;
+}
+
+.addr-form .invalid-feedback {
+    flex: 0 0 100%;
+    margin-left: 0;
+    margin-top: 5px;
+}

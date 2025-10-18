@@ -1,0 +1,54 @@
+@charset "UTF-8";
+
+.book-main {
+  background-color: #f1f1f1;
+  text-align: right;
+  min-height: calc(100vh - 250px);
+}
+
+.book-main a {
+  display: inline-block;
+  text-decoration: none;
+  color: #2e2a4f;
+  margin: 20px 20px 0 0;
+  font-weight: 600;
+}
+
+.book-main h3 {
+  color: #2e2a4f;
+  font-weight: 600;
+  padding: 20px 0;
+  text-align: left;
+}
+
+.book-main-content {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.best-book {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 70px;
+}
+
+.book-card {
+  width: 150px;
+}
+
+.book-card img {
+  width: 150px;
+  height: 230px;
+  margin-bottom: 5px;
+}
+
+.book-card h6 {
+  text-align: center;
+  color: #2e2a4f;
+  font-weight: 600;
+}
+
+.book-card a {
+  margin-bottom: 50px;
+}
