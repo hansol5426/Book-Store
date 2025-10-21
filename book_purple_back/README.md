@@ -1,2 +1,2 @@
 # book-purple-back
-Recat 대응 서버 
+온라인 서점 개인 프로젝트
