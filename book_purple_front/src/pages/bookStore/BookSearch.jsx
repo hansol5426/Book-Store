@@ -43,7 +43,7 @@ function BookSearch() {
                     <h2>검색 결과: "{searchText}"</h2>
                     {bookSearch && bookSearch.length > 0 ? (
                         <ul>
-                            {bookSearch?.filter(book => book.status === 'AVAILABLE').map(book => (
+                            {bookSearch?.map(book => (
                                 <li key={book.bookId}>
                                     <Link to={`/book/${book.bookId}`}>
                                         <div className="search-img">

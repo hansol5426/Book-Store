@@ -64,6 +64,8 @@ function BookCart(props) {
                 alert(`구매가 완료되었습니다.\n총 금액: ${totalPrice.toLocaleString()} Point\n구매해주셔서 감사합니다.`);
                 setCheckCItem([]);
                 queryClient.invalidateQueries({ queryKey: ['cart'] })
+                queryClient.invalidateQueries({ queryKey: ['stock'] })
+                queryClient.invalidateQueries({ queryKey: ['book'] })
                 navigate('/book/order')
                 queryClient.invalidateQueries({ queryKey: ['order'] })
             } else {

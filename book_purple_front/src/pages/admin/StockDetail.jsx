@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import '../../assets/css/admin/stockDetail.css';
 import { useNavigate, useParams } from 'react-router';
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';

@@ -9,7 +9,7 @@ import it.exam.book_purple.order.entity.OrderEntity;
 
 public interface OrderRepository extends JpaRepository<OrderEntity, Integer>{
 
-    @EntityGraph(attributePaths = {"orderItems"})
+    @EntityGraph(attributePaths = {"orderItems", "orderItems.book"})
     List<OrderEntity> findAllByUser_UserId(String userId);
 
 }

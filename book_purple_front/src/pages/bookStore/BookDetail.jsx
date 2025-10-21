@@ -20,6 +20,8 @@ function BookDetail(props) {
         enabled: !!bookId
     });
 
+    console.log(data);
+
     const [quantity, setQuantity] = useState(1);
 
     const increment = () => setQuantity((q) => q + 1);
@@ -56,6 +58,9 @@ function BookDetail(props) {
                 alert(`구매가 완료되었습니다.\n총 금액: ${totalPrice.toLocaleString()} Point\n구매해주셔서 감사합니다.`);
                 navigate('/book/order')
                 queryClient.invalidateQueries({ queryKey: ['order'] })
+                queryClient.invalidateQueries({ queryKey: ['stock'] })
+                queryClient.invalidateQueries({ queryKey: ['search'] })
+                queryClient.invalidateQueries({ queryKey: ['book'] })
             } else {
                 console.log('구매 실패');
             }
@@ -81,6 +86,8 @@ function BookDetail(props) {
 
             if (result.resultCode === 200) {
                 queryClient.invalidateQueries({ queryKey: ['cart'] })
+                queryClient.invalidateQueries({ queryKey: ['stock'] })
+                queryClient.invalidateQueries({ queryKey: ['search'] })
                 navigate('/book/cart');
             } else {
                 console.log('장바구니 등록 실패');
@@ -128,8 +135,14 @@ function BookDetail(props) {
                         </div>
                         <hr />
                         <div className='detail-btn'>
-                            <button type='button' onClick={goOrder}>구매</button>
-                            <button type='button' onClick={goCart}>장바구니</button>
+                            {data?.status === 'AVAILABLE' ? (
+                                <>
+                                    <button type="button" onClick={goOrder}>구매</button>
+                                    <button type="button" onClick={goCart}>장바구니</button>
+                                </>
+                            ) : (
+                                <span style={{ color: 'red', fontWeight: 'bold', fontSize: 'large' }}>품절</span>
+                            )}
                         </div>
                     </section>
                 </div>

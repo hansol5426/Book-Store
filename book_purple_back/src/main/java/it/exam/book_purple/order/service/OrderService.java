@@ -7,6 +7,8 @@ import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
+import it.exam.book_purple.book.entity.BookEntity;
+import it.exam.book_purple.book.enums.BookStatus;
 import it.exam.book_purple.book.repository.BookRepository;
 import it.exam.book_purple.order.dto.OrderDTO;
 import it.exam.book_purple.order.dto.OrderItemDTO;
@@ -22,6 +24,8 @@ import it.exam.book_purple.order.repository.OrderRepository;
 import it.exam.book_purple.order.repository.PaymentRepository;
 import it.exam.book_purple.order.repository.PointRepository;
 import it.exam.book_purple.security.dto.UserSecureDTO;
+import it.exam.book_purple.stock.entity.StockEntity;
+import it.exam.book_purple.stock.repository.StockRepository;
 import it.exam.book_purple.user.entity.UserEntity;
 import it.exam.book_purple.user.repository.UserRepository;
 import jakarta.transaction.Transactional;
@@ -33,6 +37,7 @@ public class OrderService {
 
     private final UserRepository userRepository;
     private final BookRepository bookRepository;
+    private final StockRepository stockRepository;
     private final CartItemRepository cItemRepository;
     private final OrderRepository orderRepository;
     private final OrderItemRepository oItemRepository;
@@ -131,12 +136,36 @@ public class OrderService {
         
         // 주문저장
         List<OrderItemEntity> orderItems = items.stream().map(i -> {
+
+            BookEntity bookEntity = bookRepository.findById(i.getBookId())
+                                            .orElseThrow(() -> new RuntimeException("찾는 도서가 없습니다."));
+
+            // 재고 조회
+            StockEntity stockEntity = stockRepository.findByBook(bookEntity)
+            .orElseThrow(() -> new RuntimeException("재고 정보가 없습니다."));
+            
+            if (stockEntity.getQuantity() < i.getQuantity()) {
+                throw new RuntimeException("도서 '" + bookEntity.getTitle() + "' 의 재고가 부족합니다.\n현재 재고: " + stockEntity.getQuantity());
+            }                                
+            
+            // 재고 차감
+            stockEntity.setQuantity(stockEntity.getQuantity() - i.getQuantity());
+            stockRepository.save(stockEntity);
+            
+            // 도서 상태 변경
+            if(stockEntity.getQuantity() <= 0){
+                bookEntity.setStatus(BookStatus.SOLD_OUT);
+                bookRepository.save(bookEntity);
+            }
+
             OrderItemEntity oItemEntity = new OrderItemEntity();
             oItemEntity.setOrder(orderEntity);
-            oItemEntity.setBook(bookRepository.findById(i.getBookId()).orElseThrow(()-> new RuntimeException("찾는 도서가 없습니다.")));
+            oItemEntity.setBook(bookEntity);
             oItemEntity.setQuantity(i.getQuantity());
             oItemEntity.setPrice(i.getPrice());
+
             return oItemEntity;
+
         }).toList();
         oItemRepository.saveAll(orderItems);
 

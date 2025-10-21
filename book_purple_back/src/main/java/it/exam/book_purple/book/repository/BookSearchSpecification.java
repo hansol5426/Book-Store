@@ -12,6 +12,7 @@ import it.exam.book_purple.book.dto.BookSearchDTO;
 import it.exam.book_purple.book.entity.BookEntity;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class BookSearchSpecification implements Specification<BookEntity>{
@@ -35,8 +36,8 @@ public class BookSearchSpecification implements Specification<BookEntity>{
             }  
         }
         
-        System.out.println("추가됐니?");
-        predicates.add(cb.equal(root.get("status"), "AVAILABLE"));
+        predicates.add(root.get("status").in(Arrays.asList("AVAILABLE", "SOLD_OUT")));
+
                 
         return andTogether(predicates, cb);
     }

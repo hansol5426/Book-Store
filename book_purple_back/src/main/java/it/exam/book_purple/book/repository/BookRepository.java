@@ -20,7 +20,8 @@ public interface BookRepository extends JpaRepository<BookEntity, Integer>, JpaS
     @Query(value = """
                 select *
                 from books b 
-                where b.status ='AVAILABLE'
+                where b.status !='DISCONTINUED'
+
             """,
             nativeQuery = true)
     Page<BookEntity> findAllStatus(Pageable pageable);

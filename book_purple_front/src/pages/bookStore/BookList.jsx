@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../../assets/css/bookStore/bookList.css';
-import { data, Link, useParams } from 'react-router';
+import { Link } from 'react-router';
 import { bookApi } from '../../service/bookList';
 import { useQuery } from '@tanstack/react-query';
 import Pagination from '../../components/Pagination';
