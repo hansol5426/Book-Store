@@ -61,6 +61,7 @@ function StockDetail(props) {
                 alert('재고 수정이 완료되었습니다.');
                 queryClient.invalidateQueries({ queryKey: ['adminBook'] })
                 queryClient.invalidateQueries({ queryKey: ['stock'] })
+                queryClient.invalidateQueries({ queryKey: ['book'] })
                 navigate('/admin/stock');
             } else {
                 alert('재고 수정이 실패하였습니다.');

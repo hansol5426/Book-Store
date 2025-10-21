@@ -64,6 +64,7 @@ function Register(props) {
                 navigate('/login');
             }
         } catch (error) {
+            alert(error.response?.data?.message || '오류가 발생했습니다.');
             console.log(error);
         }
     }
