@@ -75,7 +75,7 @@ public class SecurityConfig {
                         .requestMatchers("/api/v1/logout/**").permitAll()
                         .requestMatchers("/api/v1/register").permitAll()
                         .requestMatchers("/api/v1/refresh").permitAll()
-                        .requestMatchers("/admin/**", "/api/v1/admin/**").hasAnyRole("ADMIN")//
+                        .requestMatchers("/admin/**", "/api/v1/admin/**").hasAnyRole("ADMIN")
                         .anyRequest().authenticated()
 
             // 필터 순서 설정           
